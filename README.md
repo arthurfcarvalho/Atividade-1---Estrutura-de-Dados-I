@@ -2,5 +2,5 @@
 
 Alunos:
 
-Arthur de Freitas Carvalho
+Arthur de Freitas Carvalho<br>
 Gabriel Camargos
