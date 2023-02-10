@@ -30,15 +30,21 @@ void limparTela(){
 
 }// funcao pra limpar a tela
 
+void pausarTela(){
+
+    system("pause");
+
+}// funcao pra pausar a tela
+
 struct DataDeNascimento{
 
     int dia;
     int mes;
     int ano;
 
-};
+}; // declarando struct de data
 
-typedef struct DataDeNascimento data;
+typedef struct DataDeNascimento data; // mudando a maneira de declarar a struct
 
 
 struct Cliente {
@@ -59,6 +65,8 @@ struct Cliente {
 
     }//construtora que zera todos os valores sempre que um cliente eh declarado
 
+
+
     void ler(){
 
         limparTela();
@@ -78,6 +86,8 @@ struct Cliente {
     }
     //metodo pra ler os dados de um cliente
 
+
+
     int calcularIdade(){
 
         int anoTemp = anoAtual - dataNascimento.ano;
@@ -90,12 +100,14 @@ struct Cliente {
     }
     // funcao pra calcular a idade ------ subtrai o ano atual pelo ano informado e, caso o mes informado seja maior que o mes atual, subtrai o ano em 1
 
-    void imprimir(){
-        printf("\n");
 
+
+    void imprimir(){
+
+        printf("\n");
         printf("****************************************\n");
         printf("     Cliente: %s\n", nome);
-        printf("     Data de Nascimento: %d-%d-%d\n", dataNascimento.dia, dataNascimento.mes, dataNascimento.ano);
+        printf("     Data de Nascimento: %d/%d/%d\n", dataNascimento.dia, dataNascimento.mes, dataNascimento.ano);
         printf("     Idade: %d\n", idade);
         printf("     Genero: %c\n", genero);
         printf("****************************************\n");
@@ -108,7 +120,7 @@ int main(){
 
     Cliente clientes[50];
 
-    int totalClientes = 0; // variavel pra armazenar a quantidade de clientes cadastrados, impede que passe de 50
+    int totalClientes = 0; // variavel pra armazenar a quantidade de clientes cadastrados, para futuramente impedir que passe de 50
     int opcao; // variavel pra guardar a opcao escolhida pelo usuario no menu
     int mostrouAlerta = 0; // variavel que define se mostra o alerta apos o switch ou nao
 
@@ -122,13 +134,19 @@ int main(){
         switch(opcao){
 
             case 1:
-                if(totalClientes == 49){ // if que impede o usuario de cadastrar mais de 50 clientes e emite um alerta
+
+                if(totalClientes == 49){
                     printf("Nao e possivel registrar novos clientes.\n");
                     mostrouAlerta = 1;
                     break;
                 }
+                // if que impede o usuario de cadastrar mais de 50 clientes e emite um alerta
+
+
                 clientes[totalClientes].ler(); // chamando o metodo que le os dados
+
                 totalClientes++; // incrementando o total de clientes
+
                 break;
 
             case 2:
@@ -136,19 +154,25 @@ int main(){
                 limparTela();
 
                 for(int i = 0; i < totalClientes; i++){
-                    clientes[i].imprimir(); // metodo dentro de um for pra imprimir todos os clientes cadastrados
+                    clientes[i].imprimir(); // metodo dentro de um for pra imprimir TODOS os clientes cadastrados
                 }
 
-                system("pause"); //comando pra evitar que limpe a tela instantaneamente pra que o usuario consiga procurar o registro desejado
+                pausarTela();
+
                 limparTela();
         }
 
-        if(totalClientes == 49 && !mostrouAlerta){ // emite um alerta(apenas no exato momento que o usuario cadastrar o cliente numero 50)
+
+        if(totalClientes == 49 && !mostrouAlerta){
+
             printf("Alerta!\nO programa chegou ao limite de clientes registrados.\n");
+
         }
+        // emite um alerta(apenas no exato momento que o usuario cadastrar o cliente numero 50)
 
 
     }while(opcao == 1 || opcao == 2);
+    // do while enquanto nao for digitado as opcoes oferecidas no menu, qualquer outro input sai do programa
 
 
     return 0;
