@@ -62,9 +62,7 @@ struct Cliente {
     }
 
     void imprimir(){
-
-        system("cls");
-
+        printf("\n");
         printf("Cliente: %s\n", nome);
         printf("Data de Nascimento: %d-%d-%d\n", dataNascimento.dia, dataNascimento.mes, dataNascimento.ano);
         printf("Idade: %d\n", calcularIdade());
@@ -103,6 +101,7 @@ int main(){
                 break;
 
             case 2:
+                system("cls");
                 for(int i = 0; i < totalClientes; i++){
                     clientes[i].imprimir();
                 }
@@ -111,7 +110,6 @@ int main(){
         }
 
         if(totalClientes == 49){
-            char opcaoTemp;
             printf("Alerta!\nO programa chegou ao limite de clientes registrados.\n");
         }
 
