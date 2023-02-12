@@ -1,11 +1,33 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <windows.h>
+int obterAno()
+{
+    SYSTEMTIME ano;
+    GetSystemTime(&ano);
+    int anoAtual = ano.wYear;
+    return anoAtual;
+}
+int obterDia()
+{
+    SYSTEMTIME dia;
+    GetSystemTime(&dia);
+    int diaAtual = dia.wDay;
+    return diaAtual;
+}
+int obterMes()
+{
+    SYSTEMTIME mes;
+    GetSystemTime(&mes);
+    int mesAtual = mes.wMonth;
+    return mesAtual;
+}
 
-int anoAtual = 2023;
-int mesAtual = 2;
-int diaAtual = 12;
-// sempre que mudasse o mês/dia/ano teria que vir mudar manualmente
+int anoAtual = obterAno();
+int mesAtual = obterMes();
+int diaAtual = obterDia();
+// sempre que mudasse o mÃªs/dia/ano teria que vir mudar manualmente
 
 void mostrarMenu(){
 
