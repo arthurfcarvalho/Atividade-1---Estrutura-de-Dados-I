@@ -4,7 +4,8 @@
 
 int anoAtual = 2023;
 int mesAtual = 2;
-// sempre que mudasse o mês teria que vir mudar manualmente
+int diaAtual = 12;
+// sempre que mudasse o mês/dia/ano teria que vir mudar manualmente
 
 void mostrarMenu(){
 
@@ -92,9 +93,8 @@ struct Cliente {
 
         int anoTemp = anoAtual - dataNascimento.ano;
 
-        if(mesAtual < dataNascimento.mes){
-            anoTemp--;
-        }
+        mesAtual < dataNascimento.mes ? anoTemp-- : diaAtual < dataNascimento.dia ? anoTemp-- : printf("");
+                                                                                                // o que colocar quando nao quiser que aconteca nada?
 
         return anoTemp;
     }
