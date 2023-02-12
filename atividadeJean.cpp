@@ -2,32 +2,39 @@
 #include <string.h>
 #include <stdlib.h>
 #include <windows.h>
-int obterAno()
-{
+
+
+// funcoes pra obter o retorno da data automaticamente
+int obterAno(){
+
     SYSTEMTIME ano;
+
     GetSystemTime(&ano);
-    int anoAtual = ano.wYear;
-    return anoAtual;
+
+    return ano.wYear;
 }
-int obterDia()
-{
+
+int obterDia(){
+
     SYSTEMTIME dia;
+
     GetSystemTime(&dia);
-    int diaAtual = dia.wDay;
-    return diaAtual;
+
+    return dia.wDay;
 }
-int obterMes()
-{
+
+int obterMes(){
+
     SYSTEMTIME mes;
+
     GetSystemTime(&mes);
-    int mesAtual = mes.wMonth;
-    return mesAtual;
+
+    return mes.wMonth;
 }
 
 int anoAtual = obterAno();
 int mesAtual = obterMes();
 int diaAtual = obterDia();
-// sempre que mudasse o mês/dia/ano teria que vir mudar manualmente
 
 void mostrarMenu(){
 
@@ -187,7 +194,9 @@ int main(){
 
         if(totalClientes == 49 && !mostrouAlerta){
 
-            printf("Alerta!\nO programa chegou ao limite de clientes registrados.\n");
+            printf("Alerta!\nO programa chegou ao limite de clientes registrados.\n\n");
+            pausarTela();
+            limparTela();
 
         }
         // emite um alerta(apenas no exato momento que o usuario cadastrar o cliente numero 50)
