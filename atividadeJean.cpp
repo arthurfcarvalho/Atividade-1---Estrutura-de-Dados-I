@@ -102,7 +102,9 @@ struct Cliente {
         limparTela();
 
         printf("Insira o nome:\n");
-        scanf("%s", nome);
+        fflush(stdin);
+        scanf("%[^\n]s", nome);
+
 
         printf("\nInsira a data de nascimento:\n");
         scanf("%d %d %d", &dataNascimento.dia, &dataNascimento.mes, &dataNascimento.ano);
@@ -136,7 +138,7 @@ struct Cliente {
         printf("\n");
         printf("****************************************\n");
         printf("     Cliente: %s\n", nome);
-        printf("     Data de Nascimento: %d/%d/%d\n", dataNascimento.dia, dataNascimento.mes, dataNascimento.ano);
+        printf("     Data de Nascimento: %02d/%02d/%04d\n", dataNascimento.dia, dataNascimento.mes, dataNascimento.ano);
         printf("     Idade: %d\n", idade);
         printf("     Genero: %c\n", genero);
         printf("****************************************\n");
